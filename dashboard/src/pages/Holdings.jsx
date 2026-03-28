@@ -1,4 +1,4 @@
-import HoldingsDataTable from "../components/holdings/holdingsDataTable";
+import HoldingsDataTable from "../components/holdings/HoldingsDataTable";
 
 export default function Holdings() {
     return (
