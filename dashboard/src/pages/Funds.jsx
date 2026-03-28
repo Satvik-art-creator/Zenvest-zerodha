@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useOutletContext } from "react-router";
 import axios from "axios";
+import { API_BASE_URL } from "../config/env";
 
 import Balance from "../components/funds/Balance";
 import Transactions from "../components/funds/Transactions";
@@ -30,7 +31,7 @@ export default function Funds() {
 
     try {
       let { data } = await axios.post(
-        "http://localhost:8080/funds",
+        `${API_BASE_URL}/funds`,
         { type, amount },
         {
           withCredentials: true,
@@ -74,7 +75,7 @@ export default function Funds() {
   useEffect(() => {
     const fetchFunds = async () => {
       try {
-        const { data } = await axios.get("http://localhost:8080/funds", {
+        const { data } = await axios.get(`${API_BASE_URL}/funds`, {
           withCredentials: true,
         });
 

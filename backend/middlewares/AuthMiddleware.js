@@ -1,6 +1,7 @@
 const User = require("../models/UsersModel.js");
 require("dotenv").config();
 const jwt = require("jsonwebtoken");
+const { clearAuthCookieOptions } = require("../utils/CookieOptions");
 
 module.exports.requireAuth = async (req, res, next) => {
   const token = req.cookies.token;
@@ -13,12 +14,12 @@ module.exports.requireAuth = async (req, res, next) => {
     const user = await User.findById(data.id);
 
     if (!user) {
-      res.clearCookie("token", { httpOnly: true, sameSite: "lax", secure: false });
+      res.clearCookie("token", clearAuthCookieOptions);
       return res.status(401).json({ success: false, message: "Account not found. Please login again." });
     }
 
     if (!user.isVerified) {
-      res.clearCookie("token", { httpOnly: true, sameSite: "lax", secure: false });
+      res.clearCookie("token", clearAuthCookieOptions);
       return res.status(403).json({ success: false, message: "Email not verified." });
     }
 
@@ -26,7 +27,7 @@ module.exports.requireAuth = async (req, res, next) => {
     req.authUser = user;
     return next();
   } catch (err) {
-    res.clearCookie("token", { httpOnly: true, sameSite: "lax", secure: false });
+    res.clearCookie("token", clearAuthCookieOptions);
     return res.status(401).json({ success: false, message: "Session expired. Please login again." });
   }
 };

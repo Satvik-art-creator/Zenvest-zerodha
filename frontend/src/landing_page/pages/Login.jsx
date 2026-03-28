@@ -3,6 +3,7 @@ import { useSearchParams } from "react-router-dom";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import LoginComp from "../components/user/LoginComp";
+import { API_BASE_URL, DASHBOARD_APP_URL } from "../../config/env";
 
 export default function Login() {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -57,7 +58,7 @@ export default function Login() {
     try {
       setLoginLoading(true);
       const { data } = await axios.post(
-        "http://localhost:8080/login",
+        `${API_BASE_URL}/login`,
         { ...inputHandle },
         { withCredentials: true },
       );
@@ -67,7 +68,7 @@ export default function Login() {
         setPendingIdentifier("");
         handleSuccess(message);
         setTimeout(() => {
-          window.location.replace("http://localhost:5174");
+          window.location.replace(DASHBOARD_APP_URL);
         }, 500);
       } else {
         handleError(message || "Login failed.");
@@ -104,7 +105,7 @@ export default function Login() {
     try {
       setResendLoading(true);
       const { data } = await axios.post(
-        "http://localhost:8080/resend-verification",
+        `${API_BASE_URL}/resend-verification`,
         { identifier: pendingIdentifier },
         { withCredentials: true },
       );

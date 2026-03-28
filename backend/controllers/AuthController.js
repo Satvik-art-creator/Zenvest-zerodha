@@ -8,13 +8,7 @@ const {
   sendVerificationEmail,
   RESEND_COOLDOWN_MS,
 } = require("../utils/EmailVerification");
-
-const cookieOptions = {
-  httpOnly: true,
-  sameSite: "lax",
-  secure: false,
-  maxAge: 24 * 60 * 60 * 1000,
-};
+const { authCookieOptions, clearAuthCookieOptions } = require("../utils/CookieOptions");
 
 // ────────────────────────────────────────────────────────────────────
 //  SIGNUP
@@ -148,7 +142,7 @@ module.exports.Login = async (req, res) => {
     }
 
     const token = createSecretToken(user._id);
-    res.cookie("token", token, cookieOptions);
+    res.cookie("token", token, authCookieOptions);
     return res.status(200).json({ success: true, message: "Logged in successfully! Redirecting..." });
   } catch (error) {
     console.error("Login error:", error);
@@ -160,11 +154,7 @@ module.exports.Login = async (req, res) => {
 //  LOGOUT
 // ────────────────────────────────────────────────────────────────────
 module.exports.Logout = (req, res) => {
-  res.clearCookie("token", {
-    httpOnly: true,
-    sameSite: "lax",
-    secure: false,
-  });
+  res.clearCookie("token", clearAuthCookieOptions);
 
   return res.status(200).json({
     success: true,

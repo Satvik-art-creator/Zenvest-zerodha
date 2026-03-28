@@ -2,13 +2,14 @@
 import {useState, useEffect} from "react"
 import axios from "axios"
 import Skeleton from "../skeletonLoad/Skeleton";
+import { API_BASE_URL } from "../../config/env";
 
 export default function PositonsDataTable() {
   const [allPositions, setAllPositions] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    axios.get("http://localhost:8080/allPositions", {
+    axios.get(`${API_BASE_URL}/allPositions`, {
         withCredentials: true
       })
       .then((res) => {

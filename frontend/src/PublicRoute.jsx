@@ -1,6 +1,7 @@
 import { useContext, useEffect, useRef } from "react";
 import BounceLoader from "react-spinners/BounceLoader";
 import { AuthContext } from "./context/AuthContext";
+import { DASHBOARD_APP_URL } from "./config/env";
 
 export default function PublicRoute({ children }) {
 
@@ -10,7 +11,7 @@ export default function PublicRoute({ children }) {
   useEffect(() => {
     if (!loading && user && !redirectedRef.current) {
       redirectedRef.current = true;
-      window.location.replace("http://localhost:5174");
+      window.location.replace(DASHBOARD_APP_URL);
     }
   }, [loading, user]);
 

@@ -3,6 +3,7 @@ import { useLocation } from "react-router-dom";
 import axios from "axios";
 import Skeleton from "../skeletonLoad/Skeleton";
 import Chip from '@mui/material/Chip';
+import { API_BASE_URL } from "../../config/env";
 
 export default function OrdersDatatable() {
   const [allOrders, setAllOrders] = useState([]);
@@ -11,7 +12,7 @@ export default function OrdersDatatable() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8080/allOrders", {
+      .get(`${API_BASE_URL}/allOrders`, {
         withCredentials: true
       })
       .then((res) => {

@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import VerticalChart from "../charts/VerticalChart";
 import Skeleton from "../skeletonLoad/Skeleton";
+import { API_BASE_URL } from "../../config/env";
 
 export default function HoldingsDataTable() {
   const [allHoldings, setAllHoldings] = useState([]);
@@ -10,7 +11,7 @@ export default function HoldingsDataTable() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8080/allHoldings", {
+      .get(`${API_BASE_URL}/allHoldings`, {
         withCredentials: true
       })
       .then((res) => {

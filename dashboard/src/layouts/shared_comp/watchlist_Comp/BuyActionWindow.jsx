@@ -3,6 +3,7 @@ import { createPortal } from "react-dom";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import Draggable from "react-draggable";
+import { API_BASE_URL } from "../../../config/env";
 
 export default function BuyActionWindow({
   setActionState,
@@ -47,7 +48,7 @@ export default function BuyActionWindow({
 
       await axios
         .post(
-          "http://localhost:8080/newOrder",
+          `${API_BASE_URL}/newOrder`,
           {
             name: stockData.name,
             product: inputHandle.product,

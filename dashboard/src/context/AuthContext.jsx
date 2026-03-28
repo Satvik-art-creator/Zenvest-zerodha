@@ -2,6 +2,7 @@
 
 import { createContext, useState, useEffect } from "react";
 import axios from "axios";
+import { API_BASE_URL } from "../config/env";
 
 export const AuthContext = createContext();
 
@@ -12,7 +13,7 @@ export const AuthProvider = ({ children }) => {
 
   const refreshUser = async () => {
     try {
-      const res = await axios.get("http://localhost:8080/user", {
+      const res = await axios.get(`${API_BASE_URL}/user`, {
         withCredentials: true,
       });
 

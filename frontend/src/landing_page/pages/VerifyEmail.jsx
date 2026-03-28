@@ -5,6 +5,7 @@ import { ToastContainer, toast } from "react-toastify";
 import CheckCircleOutline from "@mui/icons-material/CheckCircleOutline";
 import ErrorOutline from "@mui/icons-material/ErrorOutline";
 import ScheduleOutlined from "@mui/icons-material/ScheduleOutlined";
+import { API_BASE_URL } from "../../config/env";
 
 export default function VerifyEmail() {
   const [searchParams] = useSearchParams();
@@ -46,7 +47,7 @@ export default function VerifyEmail() {
 
     const verifyToken = async () => {
       try {
-        const { data } = await axios.get("http://localhost:8080/verify-email", {
+        const { data } = await axios.get(`${API_BASE_URL}/verify-email`, {
           params: { token },
           withCredentials: true,
         });
@@ -97,7 +98,7 @@ export default function VerifyEmail() {
     try {
       setResendLoading(true);
       const { data } = await axios.post(
-        "http://localhost:8080/resend-verification",
+        `${API_BASE_URL}/resend-verification`,
         { identifier: state.email },
         { withCredentials: true },
       );

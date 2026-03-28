@@ -2,6 +2,7 @@ import {useContext} from "react";
 import { AuthContext } from "../../context/AuthContext";
 import {NavLink} from "react-router-dom"
 import axios from "axios";
+import { API_BASE_URL, FRONTEND_APP_URL } from "../../config/env";
 import "./styles/navbar.css"
 
 export default function Navbar() {
@@ -11,9 +12,9 @@ export default function Navbar() {
 
   const logout = async () => {
     try{
-      await axios.post("http://localhost:8080/logout", {}, {withCredentials: true});
+      await axios.post(`${API_BASE_URL}/logout`, {}, {withCredentials: true});
       setUser(null);
-      window.location.replace("http://localhost:5173/login");
+      window.location.replace(`${FRONTEND_APP_URL}/login`);
     } catch(err) {
       console.error(err);
     }

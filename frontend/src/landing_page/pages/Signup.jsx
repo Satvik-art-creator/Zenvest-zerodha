@@ -2,6 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import SignupComp from "../components/user/SignupComp";
+import { API_BASE_URL } from "../../config/env";
 
 export default function Signup() {
   const initailState = {
@@ -44,7 +45,7 @@ export default function Signup() {
     try {
       setSignupLoading(true);
       const { data } = await axios.post(
-        "http://localhost:8080/signup",
+        `${API_BASE_URL}/signup`,
         dataToSend,
         { withCredentials: true },
       );
