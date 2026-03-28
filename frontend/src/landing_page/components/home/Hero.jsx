@@ -1,4 +1,4 @@
-import "./styles/Hero.css"
+import "./styles/hero.css"
 import heroImg from "./images/homeHero.png"
 import {NavLink} from "react-router-dom"
 
