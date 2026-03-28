@@ -13,13 +13,47 @@ const getRouter = require("./routes/getRoutes.js");
 const postRouter = require("./routes/postRoute.js");
 const userRouter = require("./routes/userRoute.js");
 
-app.use(
-  cors({
-    origin: ["http://localhost:5173", "http://localhost:5174"],
-    methods: ["GET", "POST", "PUT", "DELETE"],
-    credentials: true,
-  })
-);
+const isProduction = process.env.NODE_ENV === "production";
+
+const parseOrigins = (value = "") =>
+  value
+    .split(",")
+    .map((origin) => origin.trim())
+    .filter(Boolean)
+    .map((origin) => origin.replace(/\/$/, ""));
+
+const configuredOrigins = new Set(parseOrigins(process.env.CORS_ORIGINS || ""));
+
+if (process.env.FRONTEND_URL) {
+  configuredOrigins.add(process.env.FRONTEND_URL.replace(/\/$/, ""));
+}
+
+if (!isProduction && configuredOrigins.size === 0) {
+  configuredOrigins.add("http://localhost:5173");
+  configuredOrigins.add("http://localhost:5174");
+}
+
+const corsOptions = {
+  origin: (origin, callback) => {
+    // Allow same-origin and non-browser requests (no Origin header).
+    if (!origin) {
+      return callback(null, true);
+    }
+
+    const normalizedOrigin = origin.replace(/\/$/, "");
+    if (configuredOrigins.has(normalizedOrigin)) {
+      return callback(null, true);
+    }
+
+    return callback(new Error("Not allowed by CORS"));
+  },
+  methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+  credentials: true,
+  optionsSuccessStatus: 204,
+};
+
+app.use(cors(corsOptions));
+app.options("*", cors(corsOptions));
 app.use(express.json());
 app.use(bodyParser.json());
 app.use(cookieParser());
@@ -35,6 +69,16 @@ app.use("/", AuthRouter);
 app.use("/", getRouter);
 app.use("/", postRouter);
 app.use("/", userRouter);
+
+app.use((err, req, res, next) => {
+  if (err && err.message === "Not allowed by CORS") {
+    return res.status(403).json({
+      success: false,
+      message: "CORS origin denied",
+    });
+  }
+  return next(err);
+});
 
 // ── 404 catch-all for unknown API routes ────────────────────────────
 app.use((req, res) => {
