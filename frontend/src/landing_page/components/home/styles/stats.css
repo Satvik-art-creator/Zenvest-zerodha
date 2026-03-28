@@ -1,0 +1,12 @@
+section .container div.row div div{
+    padding-bottom: 25px;
+}
+
+section a{
+    text-decoration: none;
+    font-weight: 600;
+}
+
+section a:hover{
+    color: #000;
+}

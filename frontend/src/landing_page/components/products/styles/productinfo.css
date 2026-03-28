@@ -1,0 +1,15 @@
+.product .row img:hover{
+    opacity: 0.8;
+}
+
+.product a p{
+    color: gray;
+    font-size: 0.9rem!important;
+}
+.product a:hover p{
+    color: gray;
+}
+
+.product a.btn:hover{
+    background-color: black;
+}

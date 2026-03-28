@@ -1,0 +1,11 @@
+header img{
+    max-height: 45vh;
+}
+
+a.btn{
+    border-radius: 0;
+}
+
+header a.btn:hover{
+    background: black;
+}

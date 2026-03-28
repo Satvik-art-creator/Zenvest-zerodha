@@ -1,0 +1,24 @@
+.support{
+    background-color: #387ED1;
+    padding: 5rem 0;
+    margin-top: 0;
+}
+
+.support h5, a, li, p{
+    color: white;
+}
+
+.support input{
+    height: 55px;
+    width: 70%;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    margin: 10px 0;
+}
+
+.support a{
+    text-decoration: underline;
+    padding: 8px;
+    font-weight: normal;
+}

@@ -1,0 +1,24 @@
+.navbar{
+    min-height: 8vh;
+    box-shadow: 0 2px 1px rgba(182, 182, 182, 0.207);
+    background-color: white;
+    z-index: 1030;
+}
+
+@media (min-width: 992px) {
+    .navbar .container-fluid{
+        margin: 0 15%;
+    }
+}
+
+.navbar .nav-link{
+    margin: 0 15px;
+}
+
+.navbar .nav-link:hover{
+    color: rgba(114, 199, 199, 0.915);
+}
+
+.active{
+    color: rgb(59, 59, 203)!important;
+}

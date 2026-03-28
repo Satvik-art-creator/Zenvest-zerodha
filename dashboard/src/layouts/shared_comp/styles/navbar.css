@@ -1,0 +1,50 @@
+.navbar{
+    min-height: 10vh;
+    box-shadow: 0 2px 1px rgba(182, 182, 182, 0.207);
+    width: 100%;
+    background-color: white; /* Optional: keeps it clean */
+}
+
+.navbar .nav-link{
+    margin: 0 8px;
+}
+
+.navbar .nav-link:hover{
+    color: orange;
+}
+
+.active{
+    color: orange!important;
+}
+
+.navbar img{
+    height: 1.6rem;
+}
+
+.navbar button.user{
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    background-color: pink;
+    color: palevioletred;
+    font-weight: 600;
+    display: inline-block;
+    cursor: pointer;
+    outline: none;
+    border: none;
+}
+
+.navbar .profile p{
+    align-self: center;
+    margin: 0;
+}
+@media (max-width: 1300px) {
+    .navbar .navbar-nav{
+        right: 23%!important;
+    }
+
+    .navbar .nav-link{
+        font-size: 14px;
+        margin: 0 6px;
+    }   
+}
