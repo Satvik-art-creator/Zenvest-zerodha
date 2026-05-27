@@ -38,6 +38,8 @@ module.exports.Signup = async (req, res) => {
       if (existingByNumber.isVerified) {
         return res.status(409).json({ success: false, message: "Phone number already registered." });
       }
+      // Unverified user holds this number — block to avoid duplicate key crash
+      return res.status(409).json({ success: false, message: "Phone number is already associated with a pending signup. Please use a different number or wait for that account to expire." });
     }
 
     // ── Username belongs to a DIFFERENT user ──────────────────────
@@ -45,6 +47,8 @@ module.exports.Signup = async (req, res) => {
       if (existingByUsername.isVerified) {
         return res.status(409).json({ success: false, message: "Username already taken. Please choose another." });
       }
+      // Unverified user holds this username — block to avoid duplicate key crash
+      return res.status(409).json({ success: false, message: "Username is already associated with a pending signup. Please choose a different username." });
     }
 
     const { token, hashedToken, expiresAt } = createVerificationTokenPair();
@@ -91,9 +95,11 @@ module.exports.Signup = async (req, res) => {
   } catch (error) {
     console.error("Signup error:", error);
 
-    // Mongoose duplicate-key error
-    if (error.code === 11000) {
-      const field = Object.keys(error.keyPattern || {})[0];
+    // Mongoose duplicate-key error (check both error.code and error.cause.code)
+    const dupCode = error.code || error.cause?.code;
+    if (dupCode === 11000) {
+      const keyPattern = error.keyPattern || error.cause?.keyPattern || {};
+      const field = Object.keys(keyPattern)[0];
       const msg =
         field === "email"
           ? "Email already registered."

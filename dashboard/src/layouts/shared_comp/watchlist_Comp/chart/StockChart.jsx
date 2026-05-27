@@ -70,6 +70,8 @@ function StockChart({ watchlist, selectedStock }) {
 
   const options = {
     responsive: true,
+    maintainAspectRatio: false,
+    resizeDelay: 100,
     cutout: "60%",
     animation: {
       duration: 500,
@@ -89,7 +91,11 @@ function StockChart({ watchlist, selectedStock }) {
     },
   };
 
-  return <Doughnut data={data} options={options} />;
+  return (
+    <div style={{ position: "relative", width: "100%", maxWidth: 500, height: 350 }}>
+      <Doughnut data={data} options={options} />
+    </div>
+  );
 }
 
 export default StockChart;

@@ -9,3 +9,16 @@ a.btn{
 header a.btn:hover{
     background: black;
 }
+
+@media (max-width: 575px) {
+    header img {
+        max-height: 30vh;
+    }
+    header h3 {
+        font-size: 1.35rem;
+    }
+    header h5 {
+        font-size: 0.95rem;
+        padding: 0 0.5rem;
+    }
+}

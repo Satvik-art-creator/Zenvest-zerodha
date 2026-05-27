@@ -17,7 +17,7 @@ const varsDesc="An easy to grasp, collection of stock market lessons with in-dep
 const LeftProduct = ({src, name, desc, firstA, secA}) => {
     return (
         <>
-            <div className="row align-items-center" style={{"margin": "4rem 0"}}>
+            <div className="row align-items-center product-row-gap">
                 <div className="col-12 col-lg-6 mb-4 mb-lg-0 text-center">
                     <a href="#"><img src={src} alt="product image" className="img-fluid" /></a>
                 </div>
@@ -43,7 +43,7 @@ const LeftProduct = ({src, name, desc, firstA, secA}) => {
 const RightProduct = ({src, name, desc, firstA}) => {
     return (
         <>
-            <div className="row align-items-center flex-column-reverse flex-lg-row" style={{"margin": "4rem 0"}}>
+            <div className="row align-items-center flex-column-reverse flex-lg-row product-row-gap">
                 <div className="col-12 col-lg-6 text-center text-lg-start" style={{"padding-top": "2rem"}}>
                     <h4>{name}</h4>
                     <br />
@@ -67,7 +67,7 @@ export default function ProductInfo() {
                     <h5 className="fw-normal">Sleek, modern, and intuitive trading platforms</h5>
                     <br />
                     <p className='fs-5'>Check out our <a href="">investment offerings <ArrowRightAltOutlinedIcon /></a></p>
-                    <hr className='w-75' style={{"margin": "4.7rem auto"}} />
+                    <hr className='w-75 hr-gap' style={{"marginLeft": "auto", "marginRight": "auto"}} />
                 </div>
 
                 <div className="container">

@@ -3,6 +3,11 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+html, body {
+  overflow-x: hidden;
+}
+
 .loading{
   height: 100vh;
   width: 100%;
@@ -16,4 +21,93 @@ p{
 }
 p a{
   color: blue!important;
+}
+
+/* ── Responsive section spacing utilities ── */
+.section-gap-lg {
+  padding-bottom: 10rem;
+}
+.section-gap-md {
+  padding-bottom: 6rem;
+}
+.section-gap-sm {
+  padding-bottom: 4rem;
+}
+.section-margin-lg {
+  margin-top: 8rem;
+  margin-bottom: 8rem;
+}
+.section-margin-md {
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+}
+.navbar-gap {
+  margin-bottom: 6rem;
+}
+.product-row-gap {
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+}
+.hr-gap {
+  margin-top: 4.7rem;
+  margin-bottom: 4.7rem;
+}
+
+@media (max-width: 991px) {
+  .section-gap-lg {
+    padding-bottom: 5rem;
+  }
+  .section-gap-md {
+    padding-bottom: 3rem;
+  }
+  .section-margin-lg {
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+  }
+  .section-margin-md {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+  }
+  .navbar-gap {
+    margin-bottom: 3rem;
+  }
+  .product-row-gap {
+    margin-top: 2.5rem;
+    margin-bottom: 2.5rem;
+  }
+  .hr-gap {
+    margin-top: 2.5rem;
+    margin-bottom: 2.5rem;
+  }
+}
+
+@media (max-width: 575px) {
+  .section-gap-lg {
+    padding-bottom: 3rem;
+  }
+  .section-gap-md {
+    padding-bottom: 2rem;
+  }
+  .section-gap-sm {
+    padding-bottom: 2rem;
+  }
+  .section-margin-lg {
+    margin-top: 2.5rem;
+    margin-bottom: 2.5rem;
+  }
+  .section-margin-md {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+  .navbar-gap {
+    margin-bottom: 2rem;
+  }
+  .product-row-gap {
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  .hr-gap {
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
 }

@@ -9,7 +9,7 @@ export default function Equity() {
                         <h2>3.74k</h2>
                         <p>Margin availabe</p>
                     </div>
-                    <div className="lgSeparate col-md-4 d-inline"></div>
+                    <div className="lgSeparate col-md-4 d-none d-md-inline"></div>
                     <div className="col-md-4">
                         <p className="p1">Margin used 0</p>
                         <p className="p1">Opening Balance 3.74k</p>

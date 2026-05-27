@@ -11,6 +11,12 @@
     }
 }
 
+@media (min-width: 992px) and (max-width: 1199px) {
+    .navbar .container-fluid{
+        margin: 0 5%;
+    }
+}
+
 .navbar .nav-link{
     margin: 0 15px;
 }
@@ -21,4 +27,22 @@
 
 .active{
     color: rgb(59, 59, 203)!important;
+}
+
+/* ── Mobile collapsed menu ── */
+@media (max-width: 991px) {
+    .navbar .nav-link {
+        margin: 0;
+        padding: 0.75rem 1rem;
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 575px) {
+    .navbar .nav-link {
+        font-size: 0.95rem;
+    }
 }

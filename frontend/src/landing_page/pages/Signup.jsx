@@ -36,6 +36,28 @@ export default function Signup() {
       return handleError("All fields are required.");
     }
 
+    // Username: letters + numbers only, must start with letter, 4-15 chars
+    const usernameRegex = /^(?=.*[A-Za-z])(?=.*[0-9])[A-Za-z][A-Za-z0-9]{3,14}$/;
+    if (!usernameRegex.test(inputHandle.username)) {
+      return handleError(
+        "Username must start with a letter, be 4–15 characters long, and contain both letters and numbers (no special characters)."
+      );
+    }
+
+    // Phone number: exactly 10 digits, can't start with 0
+    const numberRegex = /^[1-9][0-9]{9}$/;
+    if (!numberRegex.test(inputHandle.number)) {
+      return handleError("Phone number must be exactly 10 digits and cannot start with 0.");
+    }
+
+    // Password: 8+ chars, uppercase, lowercase, digit, and only @, _, # as specials
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@_#])[A-Za-z\d@_#]{8,}$/;
+    if (!passwordRegex.test(inputHandle.password)) {
+      return handleError(
+        "Password must be at least 8 characters with one uppercase, one lowercase, one number, and one special character (only @, _, or # allowed)."
+      );
+    }
+
     if (inputHandle.password !== inputHandle.cpassword) {
       return handleError("Passwords do not match!");
     }

@@ -5,16 +5,33 @@ footer{
 
 .container .row .details p{
     font-size: 14px;
-    line-height: 10px;
+    line-height: 1.4;
+}
+
+.container .row .icons{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 4px;
 }
 
 .container .row .icons a{
     color: gray;
     padding: 0 8px;
+    min-width: 36px;
+    min-height: 36px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .container .row .icons a:hover{
     color: rgba(114, 199, 199, 0.915);
+}
+
+.container .row .icons hr{
+    width: 100%;
+    margin: 0.25rem 0;
 }
 
 footer .container .row p{
@@ -31,4 +48,14 @@ footer h4{
 
 hr{
     color: #12121254;
+}
+
+@media (max-width: 575px) {
+    footer h4 {
+        font-size: 1.05rem;
+        padding-bottom: 10px;
+    }
+    footer .container .row p {
+        font-size: 0.85rem;
+    }
 }

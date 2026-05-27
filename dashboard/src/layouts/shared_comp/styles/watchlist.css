@@ -16,6 +16,7 @@ aside{
 
 aside div.info{
     height: 10vh;
+    min-height: 56px;
     box-shadow: 0 1px 10px rgba(182, 182, 182, 0.207);
 }
 
@@ -31,7 +32,8 @@ aside div p{
 
 aside div.searchContainer{
     padding-top: 8px;
-    height: 5vh;
+    height: auto;
+    min-height: 5vh;
     width: 100%;
     border-bottom: 1px solid #ddd;
 }
@@ -51,7 +53,7 @@ aside ul{
 aside ul li{
     position: relative;
     padding-left: 1rem;
-    height: 7vh;
+    min-height: 7vh;
     width: 95%;
     margin-left: auto;
     border-bottom: 1px solid #ddd;
@@ -73,10 +75,30 @@ aside ul li div.itemActions{
 
 aside button.actionBtn{
     width: 50px;
+    min-height: 40px;
 }
 
 aside ul li:hover div.itemActions{
     display: block;
+}
+
+/* ── Touch devices: always show action buttons ── */
+@media (hover: none) {
+    aside ul li div.itemActions {
+        display: block;
+        position: static;
+        transform: none;
+        margin-top: 0.25rem;
+    }
+    aside ul li {
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+        min-height: auto;
+    }
+    aside button.actionBtn {
+        width: 44px;
+        min-height: 44px;
+    }
 }
 
 .down{
@@ -99,14 +121,13 @@ aside li p{
 }
 
 aside canvas{
-    max-width: 100%!important;
-    height: auto!important;
-    max-height: 600px!important;
+    display: block;
 }
 
 .chart{
     display: flex;
     justify-content: center;
+    padding: 0 1rem;
 }
 
 /* loading */
@@ -138,4 +159,52 @@ aside canvas{
   100% {
     transform: rotate(360deg);
   }
+}
+
+/* ── Mobile watchlist refinements ── */
+@media (max-width: 991px) {
+    aside div.info {
+        height: auto;
+        padding: 0.75rem 0;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+    aside div.info div {
+        display: inline-flex;
+    }
+    aside div p {
+        padding: 0 0.5rem;
+        font-size: 0.85rem;
+    }
+    aside input {
+        width: 60%;
+        font-size: 0.85rem;
+    }
+    aside ul li {
+        width: 100%;
+        padding-right: 0.5rem;
+    }
+    aside ul li div.itemActions {
+        right: 10px;
+    }
+    aside button.actionBtn {
+        width: 40px;
+        margin: 0 2px;
+    }
+}
+
+@media (max-width: 575px) {
+    aside div p {
+        font-size: 0.75rem;
+        padding: 0 0.35rem;
+    }
+    aside input {
+        width: 55%;
+        font-size: 0.8rem;
+    }
+    .actionWindow {
+        width: 95%;
+        max-width: none;
+    }
 }

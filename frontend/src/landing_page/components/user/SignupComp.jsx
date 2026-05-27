@@ -86,12 +86,12 @@ export default function SignupComp({
                   name="username"
                   id="username"
                   pattern="^(?=.*[A-Za-z])(?=.*[0-9])[A-Za-z][A-Za-z0-9]{3,14}$"
-                  title="Username must start with a letter and be 4–15 characters long and contain both letters and numbers"
+                  title="Username must start with a letter, be 4–15 characters long, and contain both letters and numbers (no special characters)"
                   value={data.username}
                   onChange={handleInputChange}
                   required
                 />
-                <div className="form-text">Username must start with a letter, contain only letters and numbers, and be 4–15 characters long.</div>
+                <div className="form-text">Must start with a letter, 4–15 characters, contain both letters and numbers. No special characters allowed.</div>
               </div>
 
               <div className="mb-3">
@@ -140,7 +140,7 @@ export default function SignupComp({
                     name="password"
                     id="password"
                     pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@_#])[A-Za-z\d@_#]{8,}$"
-                    title="Password must be at least 8 characters long, include one uppercase letter, one lowercase letter, one number, and one special character (@, _, #)."
+                    title="Password must be at least 8 characters with one uppercase, one lowercase, one number, and one special character (@, _, or #). No other special characters allowed."
                     value={data.password} 
                     onChange={handleInputChange}
                     required
@@ -154,7 +154,7 @@ export default function SignupComp({
                     {showPassword ? <VisibilityOff fontSize="small" /> : <Visibility fontSize="small" />}
                   </button>
                 </div>
-                <div className="form-text">Password must be at least 8 characters long, include one uppercase letter, one lowercase letter, one number, and one special character (@, _, #).</div>
+                <div className="form-text">Min. 8 characters: one uppercase, one lowercase, one number, and one special character (only @, _, or # allowed).</div>
               </div>
 
               <div className="mb-4">

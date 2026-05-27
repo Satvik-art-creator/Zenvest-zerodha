@@ -20,7 +20,7 @@ const Partner = ({imgSrc, desc}) => {
 export default function ZenvestUni() {
     return (
         <>
-            <section className="product text-center" style={{"margin": "8rem 0 5rem"}}>
+            <section className="product text-center section-margin-lg">
                 <h3>The Zenvest Universe</h3>
                 <br />
                 <p className="fs-5">Extend your trading and investment experience even further with our partner platforms</p>

@@ -15,10 +15,29 @@
     border: none;
     border-radius: 5px;
     margin: 10px 0;
+    padding: 0 1rem;
 }
 
 .support a{
     text-decoration: underline;
     padding: 8px;
     font-weight: normal;
+}
+
+@media (max-width: 991px) {
+    .support {
+        padding: 3rem 0;
+    }
+    .support input {
+        width: 100%;
+    }
+}
+
+@media (max-width: 575px) {
+    .support {
+        padding: 2rem 0;
+    }
+    .support .fs-4 {
+        font-size: 1.1rem !important;
+    }
 }

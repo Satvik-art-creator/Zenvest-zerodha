@@ -5,7 +5,7 @@ import ArrowRightAltOutlinedIcon from '@mui/icons-material/ArrowRightAltOutlined
 export default function Pricing () {
     return (
         <>
-            <section style={{"padding-bottom": "10rem"}}>
+            <section className="section-gap-lg">
                 <div className="container">
                     <div className="row">
                         <div className="col-md-6">

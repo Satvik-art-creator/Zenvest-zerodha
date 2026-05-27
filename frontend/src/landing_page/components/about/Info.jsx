@@ -1,12 +1,12 @@
 export default function Info() {
     return (
         <>
-            <section style={{"margin": "8rem auto"}}>
+            <section className="section-margin-lg">
                 <div className="container">
                     <h4 className="text-center lh-sm">We pioneered the discount broking model in India.</h4>
                     <h4 className="text-center lh-sm"> Now, we are breaking ground with our technology.</h4>
 
-                    <hr style={{"margin": "4rem 0 4.7rem 0"}} />
+                    <hr className="hr-gap" />
 
                     <div className="row">
                         <div className="col-md-6">

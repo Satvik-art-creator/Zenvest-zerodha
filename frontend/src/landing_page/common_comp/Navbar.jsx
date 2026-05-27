@@ -4,7 +4,7 @@ import "./styles/navbar.css"
 export default function Navbar() {
   return (
     <>
-      <nav className="navbar navbar-expand-lg" style={{"margin-bottom": "6rem"}}>
+      <nav className="navbar navbar-expand-lg navbar-gap">
         <div className="container-fluid">
           <a className="navbar-brand text-primary fw-medium" href="/">
             ZENVEST

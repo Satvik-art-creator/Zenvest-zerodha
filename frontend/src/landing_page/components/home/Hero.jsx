@@ -5,7 +5,7 @@ import {NavLink} from "react-router-dom"
 export default function Hero() {
     return (
         <>
-            <header className="text-center" style={{"padding-bottom": "10rem"}}>
+            <header className="text-center section-gap-lg">
                 <img src={heroImg} alt="hero section image" className="img-fluid mt-2 mb-5" />
 
                 <h3 className="p-2">Invest in everything</h3>

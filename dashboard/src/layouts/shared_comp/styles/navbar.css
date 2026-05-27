@@ -38,13 +38,28 @@
     align-self: center;
     margin: 0;
 }
-@media (max-width: 1300px) {
-    .navbar .navbar-nav{
-        right: 23%!important;
-    }
 
+@media (max-width: 1300px) and (min-width: 992px) {
     .navbar .nav-link{
         font-size: 14px;
         margin: 0 6px;
     }   
+}
+
+/* ── Mobile collapsed nav ── */
+@media (max-width: 991px) {
+    .navbar .nav-link {
+        margin: 0;
+        padding: 0.75rem 1rem;
+        min-height: 44px;
+        text-align: center;
+    }
+    .navbar button.user {
+        height: 40px;
+        width: 40px;
+        font-size: 0.85rem;
+    }
+    .navbar .profile {
+        justify-content: center;
+    }
 }
