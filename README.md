@@ -108,23 +108,23 @@ To run this project, you will need to add the following environment variables.
 ### Backend (`/backend/.env`)
 Create a `.env` file in the `/backend` directory:
 ```env
-PORT=8080
-MONGO_URL=your_mongodb_connection_string
-JWT_SECRET=your_super_secret_jwt_key
-FRONTEND_URL=http://localhost:5173
-DASHBOARD_URL=http://localhost:5174
+PORT=<YOUR_PORT_NUMBER>
+MONGO_URL=<YOUR_MONGODB_CONNECTION_STRING>
+JWT_SECRET=<YOUR_JWT_SECRET_KEY>
+FRONTEND_URL=<YOUR_FRONTEND_URL>
+DASHBOARD_URL=<YOUR_DASHBOARD_URL>
 ```
 
 ### Dashboard (`/dashboard/.env`)
 Create a `.env` file in the `/dashboard` directory:
 ```env
-VITE_BACKEND_URL=http://localhost:8080
+VITE_BACKEND_URL=<YOUR_BACKEND_URL>
 ```
 
 ### Frontend (`/frontend/.env`)
 Create a `.env` file in the `/frontend` directory:
 ```env
-VITE_BACKEND_URL=http://localhost:8080
+VITE_BACKEND_URL=<YOUR_BACKEND_URL>
 ```
 
 ---
